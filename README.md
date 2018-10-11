@@ -17,6 +17,11 @@
     `echo '# City-Maps' >> README.md`
 5. Create a `Makefile` using the `touch` command:
     `touch Makefile`
-6. Create a new Python environment using `conda`: 
-    `conda create -n city-maps python=3.6`
-7. Add base files to 
+6. Create a new Python environment using `conda`
+    - Add the 'Conda Forge' channel to `.condarc` to fix Geopandas issue with mixing channels: `conda config --add channels conda-forge`
+    - Create a new conda environment, installing Geopandas and Jupyter packages: `conda create -n city-maps -c conda-forge python=3.6 geopandas jupyter`
+    - Export Conda environment: `conda env export > environment.yml`
+7. Add base files to git:
+    `git add Makefile README.md environment.yml`
+
+
