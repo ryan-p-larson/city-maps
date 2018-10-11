@@ -25,3 +25,11 @@
     `git add Makefile README.md environment.yml`
 
 
+## Step 1: Data Acquistition
+
+1. Download location history from Google Takeout to the `/data/` directory and modify the Makefile variable '`GOOGLE_TAKEOUT_ZIP`' to match the name of the downloaded file.
+
+![Screenshot of Takeout](docs/takeout.png)
+
+2. Extract location data from downloaded `.zip` file with our `Makefile`: `make data/Takeout`
+
