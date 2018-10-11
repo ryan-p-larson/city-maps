@@ -36,7 +36,13 @@
 
 **Iowa County Data** (so we can filter the locations)
 
-1. Download and extract the IA County data with the following Makefile command: `make data/counties/county.zip`
+1. Download and extract the IA County data with the following Makefile command: `make data/counties/county.shp`
+
+**Johnson County Location History**
+
+1. Run the make command to merge the location history with the county shapefile: `make data/johnson-cnty-coords.csv`
+
+
 
 
 
