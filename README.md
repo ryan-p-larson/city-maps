@@ -27,9 +27,16 @@
 
 ## Step 1: Data Acquistition
 
+**Google Takeout Data**
 1. Download location history from Google Takeout to the `/data/` directory and modify the Makefile variable '`GOOGLE_TAKEOUT_ZIP`' to match the name of the downloaded file.
 
 ![Screenshot of Takeout](docs/takeout.png)
 
 2. Extract location data from downloaded `.zip` file with our `Makefile`: `make data/Takeout`
+
+**Iowa County Data** (so we can filter the locations)
+
+1. Download and extract the IA County data with the following Makefile command: `make data/counties/county.zip`
+
+
 
