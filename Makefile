@@ -20,7 +20,7 @@ data/Takeout: ${GOOGLE_TAKEOUT_ZIP}
 
 # Parsing just lat/lng/timestamps
 ${GOOGLE_TAKEOUT_PARSED}: data/Takeout
-	python src/parse-points --input ${GOOGLE_TAKEOUT_JSON} --output $@
+	python src/parse-points.py --input ${GOOGLE_TAKEOUT_JSON} --output ${GOOGLE_TAKEOUT_PARSED}
 
 ## Iowa Counties
 data/counties:
@@ -31,11 +31,15 @@ ${IA_COUNTY_ZIP}: data/counties
 
 ${IA_COUNTY_SHP}: ${IA_COUNTY_ZIP}
 	unzip $< -d data/counties
+	touch ${IA_COUNTY_SHP}
 
 
 ## Johnson County Location History
-${JOHNSON_COUNTY_CSV}: ${IA_COUNTY_SHP} ${GOOGLE_TAKEOUT_PARSED} 
+${JOHNSON_COUNTY_CSV}: ${IA_COUNTY_SHP} ${GOOGLE_TAKEOUT_PARSED} src/filter-points.py src/format-points.py
 	python src/filter-points.py \
 	--locations ${GOOGLE_TAKEOUT_PARSED} \
 	--counties ${IA_COUNTY_SHP} \
-	--output $@
+	--output ${JOHNSON_COUNTY_CSV}
+	python src/format-points.py \
+	--input ${JOHNSON_COUNTY_CSV} \
+	--output ${JOHNSON_COUNTY_CSV}
