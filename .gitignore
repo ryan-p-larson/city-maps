@@ -102,3 +102,8 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+
+# Ignore unzipped IA counties
+data/counties/
+data/Takeout/
