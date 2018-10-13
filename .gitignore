@@ -104,6 +104,19 @@ venv.bak/
 .mypy_cache/
 
 
-# Ignore unzipped IA counties
-data/counties/
-data/Takeout/
+# Ignore unzipped shapefiles
+*.dbf
+*.htm
+*.prj
+*.sbn
+*.sbx
+*.sh*
+*.cpg
+clipping_boundary.geojson
+
+# Google data...
+data/Takeout/*.json
+data/takeout-*.zip
+
+# QGIS project
+**/*.qgz
