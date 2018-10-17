@@ -100,12 +100,14 @@ class IC:
 
             yr_df = df[df.year == yr]
             color = self.colors[yr]
+            markersize = 10 if len(yrs) > 1 else 12
+            alpha = 0.05 if len(yrs) > 1 else 0.1
 
             handle = yr_df.plot(ax=axes,
                         label=label,
                         marker='o',
-                        markersize=10,
-                        alpha=0.05,
+                        markersize=markersize,
+                        alpha=alpha,
                         facecolor=[color])
 
         # Set limits to account for pt limits extending beyond basemap
@@ -147,7 +149,7 @@ class IC:
             lh.set_alpha(0.65)
 
         # add title
-        plot_title = self.titles[yr] if yr != '' else 'Last 3 years of Iowa City Activity'
+        plot_title = self.titles[yr] if yr != '' else ' Last 3 years of Iowa City Activity '
 
         ax.text(0, 0.97, plot_title,
           family='sans-serif',
