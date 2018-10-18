@@ -14,11 +14,6 @@ parser = argparse.ArgumentParser(description='Formats filtered locations points 
 parser.add_argument('-i', '--input', help='Filepath of filtered locations as .csv')
 parser.add_argument('-o', '--output', help='Filepath of output .csv')
 
-## Variables
-args = parser.parse_args()
-coords_f = args.input
-output_f = args.output
-
 
 ## Functions
 def parse_df_times(df):
@@ -30,7 +25,7 @@ def parse_df_times(df):
     copy_df['cst_timestamp'] = copy_df.parsed_timestamp.dt.tz_convert('America/Chicago')
     
     # Remove the verbose columns and rename to match
-    slim_df = copy_df[['cst_timestamp', 'latitude', 'longitude']]
+    slim_df = copy_df[['cst_timestamp', 'latitude', 'longitude', 'accuracy']]
     slim_df.rename(columns={'cst_timestamp': 'timestamp'}, inplace=True)
     
     return slim_df
@@ -69,16 +64,21 @@ def format_df_cols(df):
     copy_df = df.copy()
     
     # Add time attributes
-    copy_df['weekday'] = df.timestamp.dt.day_name
-    copy_df['dayhour'] = df.timestamp.dt.hour
+    copy_df['day'] = df.timestamp.dt.day_name
+    copy_df['hour'] = df.timestamp.dt.hour
     
     # Dimensions
-    copy_df['weekend'] = copy_df['weekday'].apply(is_weekend)
+    copy_df['weekend'] = copy_df['day'].apply(is_weekend)
     copy_df['year'] = copy_df['timestamp'].apply(assign_year)
     copy_df['business'] = copy_df['timestamp'].apply(is_business)
     
     return copy_df
 
+
+## Variables
+args = parser.parse_args()
+coords_f = args.input
+output_f = args.output
 
 ## Script
 coords_df = pd.read_csv(coords_f)

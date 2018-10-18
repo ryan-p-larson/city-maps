@@ -39,10 +39,13 @@ def reproject_and_extract_counties(gdf):
     return proj_johnson
 
 def join_and_filter_coords(county, coords):
+    # Remove coords with less than 25ft of accuracy
+    coords = coords[coords['accuracy'] <= 25]
+    
     # keep all of the coords contained within the single county geodataframe
     cnty_coords = gpd.sjoin(county, coords, how='inner', op='contains')
     # Slim down the columns, as the join adds the county datum
-    cnty_coords = cnty_coords[['timestamp', 'latitude', 'longitude']]
+    cnty_coords = cnty_coords[['timestamp', 'latitude', 'longitude', 'accuracy']]
     return cnty_coords
 
 

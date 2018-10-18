@@ -26,7 +26,7 @@ locations = data['locations']
 ## Parser
 with open(args.output, 'w') as csvfile:
 		filewriter = csv.writer(csvfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
-		filewriter.writerow(['timestamp', 'latitude', 'longitude'])
+		filewriter.writerow(['timestamp', 'latitude', 'longitude', 'accuracy'])
 		for l, location in enumerate(locations):
 			timestamp = datetime.utcfromtimestamp(int(location['timestampMs']) / 1000)
 			filewriter.writerow([timestamp, float(location['latitudeE7'])/math.pow(10, 7), float(location['longitudeE7'])/math.pow(10, 7)])
