@@ -1,0 +1,4 @@
+{
+    "python.pythonPath": "/home/user/.miniconda3/envs/maps/bin/python",
+    "python.linting.pylintEnabled": false
+}

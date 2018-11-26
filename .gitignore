@@ -102,3 +102,21 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+
+# Ignore unzipped shapefiles
+*.dbf
+*.htm
+*.prj
+*.sbn
+*.sbx
+*.sh*
+*.cpg
+clipping_boundary.geojson
+
+# Google data...
+data/Takeout/*.json
+data/takeout-*.zip
+
+# QGIS project
+**/*.qgz
