@@ -13,21 +13,21 @@ Maps from location and gps trace data. View the uncompleted tutorial [here](TUTO
 
 ## <a id="running" href="#"/> Running
 
-![Iowa City](output/IC/ic-heatmap.png)
+<img style="max-height: 400px" src="output/IC/ic-heatmap.png"></img>
 
-![Cross Country Course](output/IC/cross-heatmap.png)
+<img style="max-height: 400px" src="output/IC/cross-heatmap.png"></img>
 
-![Golf Course](output/IC/finkbine-heatmap.png)
+<img style="max-height: 400px" src="output/IC/finkbine-heatmap.png"></img>
 
-![Track](output/IC/track-heatmap.png)
+<img style="max-height: 400px" src="output/IC/track-heatmap.png"></img>
 
 
 ## <a id="locations" href="#">GPS Locations</a>
 
-![All years](output/all-activity.png)
+<img style="max-height: 400px" src="output/all-activity.png"></img>
 
-![Junior year](output/junior-activity.png)
+<img style="max-height: 400px" src="output/junior-activity.png"></img>
 
-![Senior year](output/senior-activity.png)
+<img style="max-height: 400px" src="output/senior-activity.png"></img>
 
-![Postgrad year](output/postgrad-activity.png)
+<img style="max-height: 400px" src="output/postgrad-activity.png"></img>
